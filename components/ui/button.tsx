@@ -4,14 +4,15 @@ import { twMerge } from 'tailwind-merge'
 import { tv, VariantProps } from 'tailwind-variants'
 
 const button = tv({
-  base: 'min-w-40 text-center cursor-pointer rounded-md px-6 py-4 transition-all duration-300',
+  base: 'w-full text-center cursor-pointer rounded-md px-6 py-4 transition-all duration-300',
 
   variants: {
     variant: {
       primary: twMerge(
-        'border border-black/50 bg-black/5 hover:border-black hover:bg-black/2',
-        'dark:white/50 dark:bg-white/10 dark:hover:border-white dark:hover:bg-white/5',
+        'border border-stroke bg-surface ',
+        'hover:bg-surface-muted hover:border-text',
       ),
+      icon: twMerge('w-fit p-2 text-text rounded-full', 'hover:bg-highlight'),
     },
   },
 
@@ -28,7 +29,7 @@ type ButtonProps = ComponentProps<'button'> &
 export function Button({ asChild, variant, className, ...props }: ButtonProps) {
   const Component = asChild ? Slot : 'button'
 
-  //   return <button className="min-w-40 bg-amber-50" {...props} />
+  // return <button className="min-w-40 bg-amber-50" {...props} />
 
   return <Component {...props} className={button({ variant, className })} />
 }

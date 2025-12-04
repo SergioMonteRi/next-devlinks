@@ -22,10 +22,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="box-border">
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <main className="mx-auto max-w-xl">{children}</main>
         </ThemeProvider>
       </body>
     </html>

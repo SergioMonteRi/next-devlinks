@@ -1,60 +1,56 @@
 'use client'
 
-import { MoonStarsIcon, SunIcon } from '@phosphor-icons/react'
-import * as Switch from '@radix-ui/react-switch'
+import {
+  GithubLogoIcon,
+  InstagramLogoIcon,
+  LinkedinLogoIcon,
+  YoutubeLogoIcon,
+} from '@phosphor-icons/react'
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 
-import { Button } from '@/components'
+import { Button, ThemeSwitcher } from '@/components'
 
 export default function Home() {
-  const { setTheme, resolvedTheme } = useTheme()
-
-  const checked = resolvedTheme === 'dark' ? false : true
-
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setMounted(true)
-    }, 100)
-  }, [])
-
-  if (!mounted) {
-    return (
-      <div className="h-6 w-16 rounded-full border backdrop-blur transition-all outline-none" />
-    )
-  }
-
   return (
     <div className="flex h-screen flex-col items-center justify-center">
-      <Switch.Root
-        data-slot="switch"
-        className={
-          'relative h-6 w-16 rounded-full border backdrop-blur transition-all outline-none'
-        }
-        checked={checked}
-        onCheckedChange={(newChecked) =>
-          setTheme(newChecked ? 'light' : 'dark')
-        }
-      >
-        <Switch.Thumb
-          data-slot="switch-thumb"
-          className="absolute top-1/2 -left-1 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-amber-700 transition-transform data-[state=checked]:translate-x-[36px]"
-        >
-          {resolvedTheme === 'dark' ? (
-            <MoonStarsIcon className="text-white" size={16} />
-          ) : (
-            <SunIcon className="text-black" size={16} />
-          )}
-        </Switch.Thumb>
-      </Switch.Root>
+      <ThemeSwitcher />
 
-      <div className="mt-20 w-full max-w-xl">
-        <div className="flex justify-center">
+      <div className="w-full">
+        <div className="flex flex-col justify-center gap-6 p-6">
           <Button variant="primary" asChild>
-            <Link href="/portfolio">Link</Link>
+            <Link href="/">Inscreva-se no NLW</Link>
+          </Button>
+          <Button variant="primary" asChild>
+            <Link href="/">Baixe meu e-book</Link>
+          </Button>
+          <Button variant="primary" asChild>
+            <Link href="/">Veja meu portfólio</Link>
+          </Button>
+          <Button variant="primary" asChild>
+            <Link href="/">Conheça meu curso</Link>
+          </Button>
+        </div>
+
+        <div className="flex items-center justify-center gap-6 p-6">
+          <Button variant="icon" asChild>
+            <Link href="/github">
+              <GithubLogoIcon size={24} />
+            </Link>
+          </Button>
+          <Button variant="icon" asChild>
+            <Link href="/instagram">
+              <InstagramLogoIcon size={24} />
+            </Link>
+          </Button>
+          <Button variant="icon" asChild>
+            <Link href="/youtube">
+              <YoutubeLogoIcon size={24} />
+            </Link>
+          </Button>
+          <Button variant="icon" asChild>
+            <Link href="/linkedin">
+              <LinkedinLogoIcon size={24} />
+            </Link>
           </Button>
         </div>
       </div>
