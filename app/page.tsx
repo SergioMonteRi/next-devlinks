@@ -8,11 +8,17 @@ import {
 } from '@phosphor-icons/react'
 import Link from 'next/link'
 
-import { Button, ThemeSwitcher } from '@/components'
+import { Avatar, Button, ThemeSwitcher } from '@/components'
 
 export default function Home() {
   return (
     <div className="flex h-screen flex-col items-center justify-center">
+      <div className="flex flex-col items-center gap-2 p-6">
+        <Avatar />
+
+        <span className="text-text font-medium">@juliasilva</span>
+      </div>
+
       <ThemeSwitcher />
 
       <div className="w-full">
