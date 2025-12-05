@@ -18,7 +18,7 @@ export function ThemedBackground() {
   }, [])
 
   if (!mounted) {
-    return null
+    return <div className="bg-surface absolute -z-10 h-full w-full" />
   }
 
   const backgroundImageSrc = isDarkTheme

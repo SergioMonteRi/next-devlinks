@@ -22,7 +22,11 @@ export function ThemeSwitcher() {
 
   if (!mounted) {
     return (
-      <div className="h-6 w-16 rounded-full border backdrop-blur transition-all outline-none" />
+      <div className="flex h-10 items-center justify-center">
+        <div className="border-stroke bg-surface relative h-6 w-16 rounded-full border">
+          <div className="absolute top-1/2 -left-1 size-8 -translate-y-1/2 rounded-full bg-white" />
+        </div>
+      </div>
     )
   }
 
