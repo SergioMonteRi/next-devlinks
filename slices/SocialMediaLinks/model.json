@@ -1,0 +1,57 @@
+{
+  "id": "social_media_links",
+  "type": "SharedSlice",
+  "name": "SocialMediaLinks",
+  "description": "SocialMediaLinks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "social_media_links": {
+          "type": "Group",
+          "config": {
+            "label": "Social Media Links",
+            "repeat": true,
+            "fields": {
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {
+                    "width": 24,
+                    "height": 24
+                  },
+                  "thumbnails": []
+                }
+              },
+              "url": {
+                "type": "Link",
+                "config": {
+                  "label": "URL",
+                  "placeholder": "https://github.com/",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              },
+              "logo_alt": {
+                "type": "Text",
+                "config": {
+                  "label": "Logo alt",
+                  "placeholder": "Github link"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,19 +1,27 @@
 'use client'
 
-import Image from 'next/image'
+import { GroupField } from '@prismicio/client'
+import { PrismicNextImage } from '@prismicio/next'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-export function Avatar() {
+import { HomeDocumentDataAvatarItem, Simplify } from '@/prismicio-types'
+
+interface AvatarProps {
+  avatars: GroupField<Simplify<HomeDocumentDataAvatarItem>>
+}
+
+export function Avatar({ avatars }: AvatarProps) {
   const { resolvedTheme } = useTheme()
 
-  const isDarkTheme = resolvedTheme === 'dark'
-
-  const imgSrc = isDarkTheme
-    ? '/images/avatar-dark.png'
-    : '/images/avatar-light.png'
+  const isLightTheme = resolvedTheme === 'light'
 
   const [mounted, setMounted] = useState(false)
+
+  const avatarLightTheme = avatars.find((avatar) => avatar.is_light_theme)
+  const avatarDarkTheme = avatars.find((avatar) => !avatar.is_light_theme)
+
+  const currentAvatar = isLightTheme ? avatarLightTheme : avatarDarkTheme
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,11 +39,9 @@ export function Avatar() {
 
   return (
     <div className="relative flex size-28 items-center justify-center rounded-full">
-      <Image
-        src={imgSrc}
-        alt="Avatar"
-        className="outline-stroke rounded-full object-cover outline-2 -outline-offset-2"
-        fill
+      <PrismicNextImage
+        field={currentAvatar?.avatar}
+        className="outline-stroke size-full rounded-full object-cover outline-2 -outline-offset-2"
       />
     </div>
   )
