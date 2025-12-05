@@ -15,8 +15,6 @@ export default async function HomePage() {
     return notFound()
   })
 
-  console.log(page)
-
   return (
     <div className="flex h-screen flex-col items-center justify-center">
       <ThemedBackground />
