@@ -1,12 +1,33 @@
+'use client'
+
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export function Avatar() {
   const { resolvedTheme } = useTheme()
 
-  const isDark = resolvedTheme === 'dark'
+  const isDarkTheme = resolvedTheme === 'dark'
 
-  const imgSrc = isDark ? '/images/avatar-dark.png' : '/images/avatar-light.png'
+  const imgSrc = isDarkTheme
+    ? '/images/avatar-dark.png'
+    : '/images/avatar-light.png'
+
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMounted(true)
+    }, 100)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <div className="relative flex size-28 items-center justify-center rounded-full">
+        <div className="bg-surface h-full w-full animate-pulse rounded-full" />
+      </div>
+    )
+  }
 
   return (
     <div className="relative flex size-28 items-center justify-center rounded-full">
