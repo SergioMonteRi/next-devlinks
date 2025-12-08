@@ -49,3 +49,9 @@ https://next-devlinks.vercel.app/
   <img src="./public/readme/mac-light.png" width="600" alt="Mac Light" />
 </p>
 
+
+## 📊 Metrics
+
+<p align="center">
+  <img src="./public/readme/metrics.png" width="600" alt="Mac Light" />
+</p>
