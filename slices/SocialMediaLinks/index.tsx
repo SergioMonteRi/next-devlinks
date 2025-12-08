@@ -17,6 +17,7 @@ const SocialMediaLinks: FC<SocialMediaLinksProps> = ({ slice }) => {
         <PrismicNextLink
           key={index}
           field={item.url}
+          aria-label={`Ir para ${item.logo_alt}`}
           className="text-text hover:bg-highlight rounded-full p-2 transition-all duration-300"
         >
           <PrismicNextImage

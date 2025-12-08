@@ -32,6 +32,10 @@ export function ThemeSwitcher() {
 
   return (
     <div className="flex h-10 items-center justify-center">
+      <label htmlFor="theme-switch" className="sr-only">
+        Alternar tema
+      </label>
+
       <Switch.Root
         data-slot="switch"
         className={
