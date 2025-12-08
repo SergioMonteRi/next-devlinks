@@ -37,6 +37,7 @@ export function ThemeSwitcher() {
       </label>
 
       <Switch.Root
+        aria-label="Alternar tema"
         data-slot="switch"
         className={
           'border-stroke bg-surface relative h-6 w-16 cursor-pointer rounded-full border backdrop-blur transition-all outline-none'
